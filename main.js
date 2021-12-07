@@ -2,15 +2,27 @@ window.addEventListener("load", initSite);
 
 
 async function initSite() {
+    try {
+        
+        let GET = await makeRequest("./API/addHoroscope.php", {method: "GET"}); 
+        console.log(GET)
 
-    let data = await makeRequest("./API/addHoroscope.php")
-    let data = await makeRequest("./API/updateHoroscope.php")
+
+
+        
+        let POST = await makeRequest("./API/updateHoroscope.php", {method: "POST", body }); 
+        console.log(POST)
+
+    } catch(err) {
+        console.error(err)
+
+    }
 
 }
 
-async function makeRequest() {
+async function makeRequest(url, option) {
     try {
-        let response = await fetch()
+        let response = await fetch(url, option)
         let result = response.json()
         return result 
 

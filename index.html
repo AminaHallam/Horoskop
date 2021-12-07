@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <script defer src="/main.js"></script>
     <link rel="stylesheet" href="style.css">
     
     <title>Horoskop</title>
 </head>
 <body>
-    <main>
-        <section class="rubrik">
-            <h1>Horoskopet</h1>
-        </section>
-        <div>
+    <section class="picture">
         <img src="/horoskopPicture.jpg" alt="horoskop">
-        </div>
+    </section>
+    <main>
+        <div class="rubrik">Horoskopet</div>
         <div class="InputContainer">
-            Här ska det vara alla knappar och input 
+            <label class="birthday" for="födelsedatum">Ange födelsedatum</label>
+            <input id="inputDate" type="date" name="födelsedatum">
+        </div>
+        <div>
+            <h2>Resultat</h2>
+        </div>
+        <div class="btn-Container">
+            <button id="saveHoroscope" onclick="saveResult" class="btn-saveResult">Spara mitt horoskop</button>
+            <button id="updateHoroscope" onclick="updateResult" class="btn-updateResult">Uppdatera mitt horoskop</button>
+            <button id="deleteHoroscope" onclick="deleteResult" class="btn-deleteResult">Radera mitt horoskop</button>
         </div>
     </main>
 </body>
