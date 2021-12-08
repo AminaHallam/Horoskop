@@ -2,6 +2,7 @@
 
 
 try {
+    session_start(); 
 
     require("../horoscopeList.php"); 
 
@@ -10,11 +11,14 @@ try {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
-            $horoscopeList = json_decode($_POST["body"], true);
+           
+            //$zodiac = json_decode($_POST["body"], true);
 
-            error_log(json_encode($horoscopeList));
+            
 
-            echo json_encode($_SESSION["name"]);
+            //echo json_encode($_SESSION["name"]);
+
+            echo json_encode ("Sparat POST");
 
             exit; 
 
@@ -22,7 +26,7 @@ try {
         }
 
     } else {
-        $_SESSION[]
+        
     }
 
 

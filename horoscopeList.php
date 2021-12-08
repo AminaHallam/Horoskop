@@ -3,162 +3,124 @@
 $horoscopeList = [
     [
         'name' => 'Väduren', 
-        'start' => '03-21', 
-        'end' => '04-20'
+        'start' => ['month' => 3, 'day' => 21], 
+        'end' => ['month' => 4, 'day' => 20]
     ], 
     [
         'name' => 'Oxen', 
-        'start' => '04-21', 
-        'end' => '05-21'
+        'start' => ['month' => 4, 'day' => 21], 
+        'end' => ['month' => 5, 'day' => 21]
     ],
     [
         'name' => 'Tvillingarna', 
-        'start' => '05-22', 
-        'end' => '06-21'
+        'start' => ['month' => 5, 'day' => 22], 
+        'end' => ['month' => 6, 'day' => 21]
     ],
     [
         'name' => 'Kräftan', 
-        'start' => '06-22', 
-        'end' => '07-22'
+        'start' => ['month' => 6, 'day' => 22], 
+        'end' => ['month' => 7, 'day' => 22]
     ],
     [
         'name' => 'Lejonet', 
-        'start' => '07-23', 
-        'end' => '08-23'
+        'start' => ['month' => 7, 'day' => 23], 
+        'end' => ['month' => 8, 'day' => 23]
     ],
     [
         'name' => 'Jungfrun', 
-        'start' => '08-24', 
-        'end' => '09-23'
+        'start' => ['month' => 8, 'day' => 24], 
+        'end' => ['month' => 9, 'day' => 23]
     ],
     [
         'name' => 'Vågen', 
-        'start' => '09-24', 
-        'end' => '10-22'
+        'start' => ['month' => 9, 'day' => 24], 
+        'end' => ['month' => 10, 'day' => 22]
     ],
     [
         'name' => 'Skorpionen', 
-        'start' => '10-23', 
-        'end' => '11-22'
+        'start' => ['month' => 10, 'day' => 23], 
+        'end' => ['month' => 11, 'day' => 22]
     ],
     [
         'name' => 'Skytten', 
-        'start' => '11-23', 
-        'end' => '12-22'
+        'start' => ['month' => 11, 'day' => 23], 
+        'end' => ['month' => 12, 'day' => 22]
     ],
     [
         'name' => 'Stenbocken', 
-        'start' => '12-23', 
-        'end' => '01-20'
+        'start' => ['month' => 12, 'day' => 23], 
+        'end' => ['month' => 1, 'day' => 20]
     ],
     [
         'name' => 'Vattumannen', 
-        'start' => '01-21', 
-        'end' => '02-18'
+        'start' => ['month' => 1, 'day' => 21], 
+        'end' => ['month' => 2, 'day' => 18]
     ],
     [
         'name' => 'Fiskarna', 
-        'start' => '02-19', 
-        'end' => '03-20'
+        'start' => ['month' => 2, 'day' => 19], 
+        'end' => ['month' => 3, 'day' => 20]
     ],
     
 ]; 
 
-// print_r($horoscopeList); 
+
+//function calculateZodiac() {
 
 
+    for ($i=0; $i < count($horoscopeList); $i++) { 
+        $zodiac = $horoscopeList[$i]; 
+        echo "<p>{$zodiac['name']}</p>";
 
-for ($i=0; $i < count($horoscopeList); $i++) { 
-    $horoscope = $horoscopeList[$i]; 
-    echo "<p>{$horoscope['name']}</p>";
+        if(('month' == 3 && 'day' > 21) || ('month' == 4 && 'day' < 20)) {
+            return $zodiac['Väduren'];
+            
+        } elseif(('month' == 4 && 'day' > 21) || ('month' == 5 && 'day' < 21)) {
+            return $zodiac['Oxen'];
 
-    if($horoscope == ['start' => '03-21'] && ['end' => '04-20']) {
-        return $horoscope['Väduren'];
-        echo "<p>{$horoscope['Väduren']}</p>";
-    } elseif($horoscope == ['start' => '04-21'] && ['end' => '05-21']) {
-        return $horoscope['Oxen'];
-
-    } elseif($horoscope == ['start' => '05-22'] && ['end' => '06-21']) {
-        return $horoscope['Tvillingarna'];
+        } elseif(('month' == 5 && 'day' > 22) || ('month' == 6 && 'day' < 21)) {
+            return $zodiac['Tvillingarna'];
         
-    } elseif($horoscope == ['start' => '06-22'] && ['end' => '07-22']) {
-        return $horoscope['Kräftan'];
+        } elseif(('month' == 6 && 'day' > 22) || ('month' == 7 && 'day' < 22)) {
+            return $zodiac['Kräftan'];
         
-    } elseif($horoscope == ['start' => '07-23'] && ['end' => '08-23']) {
-        return $horoscope['Lejonet'];
+        } elseif(('month' == 7 && 'day' > 23) || ('month' == 8 && 'day' < 23)) {
+            return $zodiac['Lejonet'];
         
-    } elseif($horoscope == ['start' => '08-24'] && ['end' => '09-23']) {
-        return $horoscope['Jungfrun'];
+        } elseif(('month' == 8 && 'day' > 24) || ('month' == 9 && 'day' < 23)) {
+            return $zodiac['Jungfrun'];
         
-    } elseif($horoscope == ['start' => '09-24'] && ['end' => '10-22']) {
-        return $horoscope['Vågen'];
+        } elseif(('month' == 9 && 'day' > 24) || ('month' == 10 && 'day' < 22)) {
+            return $zodiac['Vågen'];
         
-    } elseif($horoscope == ['start' => '10-23'] && ['end' => '11-22']) {
-        return $horoscope['Skorpionen'];
+        } elseif(('month' == 10 && 'day' > 23) || ('month' == 11 && 'day' < 22)) {
+            return $zodiac['Skorpionen'];
         
-    } elseif($horoscope == ['start' => '11-23'] && ['end' => '12-22']) {
-        return $horoscope['Skytten'];
+        } elseif(('month' == 11 && 'day' > 23) || ('month' == 12 && 'day' < 22)) {
+            return $zodiac['Skytten'];
         
-    } elseif($horoscope == ['start' => '12-23'] && ['end' => '01-20']) {
-        return $horoscope['Stenbocken'];
+        } elseif(('month' == 12 && 'day' > 23) || ('month' == 1 && 'day' < 20)) {
+            return $zodiac['Stenbocken'];
         
-    } elseif($horoscope == ['start' => '01-21'] && ['end' => '02-18']) {
-        return $horoscope['Vattumannen'];
+        } elseif(('month' == 1 && 'day' > 21) || ('month' == 2 && 'day' < 18)) {
+            return $zodiac['Vattumannen'];
         
-    } elseif($horoscope == ['start' => '02-19'] && ['end' => '03-20']) {
-        return $horoscope['Fiskarna']; 
+        } elseif(('month' == 2 && 'day' > 19) || ('month' == 3 && 'day' < 20)) {
+            return $zodiac['Fiskarna']; 
         
-    }
+        }
 
 
-};
+    };
+
+
 
 /*
 foreach($horoscopeList as $horoscopeLists) {
     echo "<p>{$horoscopeLists['name']}</p>"; 
 
-    if($horoscopeLists == ['start' => '03-21'] && ['end' => '04-20']) {
-        return $horoscopeLists['Väduren'];
-        echo "<p>{$horoscopeLists['Väduren']}</p>";
-    } elseif($horoscopeLists == ['start' => '04-21'] && ['end' => '05-21']) {
-        return $horoscopeLists['Oxen'];
-
-    } elseif($horoscopeLists == ['start' => '05-22'] && ['end' => '06-21']) {
-        return $horoscopeLists['Tvillingarna'];
-        
-    } elseif($horoscopeLists == ['start' => '06-22'] && ['end' => '07-22']) {
-        return $horoscopeLists['Kräftan'];
-        
-    } elseif($horoscopeLists == ['start' => '07-23'] && ['end' => '08-23']) {
-        return $horoscopeLists['Lejonet'];
-        
-    } elseif($horoscopeLists == ['start' => '08-24'] && ['end' => '09-23']) {
-        return $horoscopeLists['Jungfrun'];
-        
-    } elseif($horoscopeLists == ['start' => '09-24'] && ['end' => '10-22']) {
-        return $horoscopeLists['Vågen'];
-        
-    } elseif($horoscopeLists == ['start' => '10-23'] && ['end' => '11-22']) {
-        return $horoscopeLists['Skorpionen'];
-        
-    } elseif($horoscopeLists == ['start' => '11-23'] && ['end' => '12-22']) {
-        return $horoscopeLists['Skytten'];
-        
-    } elseif($horoscopeLists == ['start' => '12-23'] && ['end' => '01-20']) {
-        return $horoscopeLists['Stenbocken'];
-        
-    } elseif($horoscopeLists == ['start' => '01-21'] && ['end' => '02-18']) {
-        return $horoscopeLists['Vattumannen'];
-        
-    } elseif($horoscopeLists == ['start' => '02-19'] && ['end' => '03-20']) {
-        return $horoscopeLists['Fiskarna']; 
-        
-    }
-
 }
 */
-
-
 
 
 // print($horoscopeList); 
