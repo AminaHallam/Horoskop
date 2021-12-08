@@ -5,9 +5,9 @@ try {
 
     if($_SERVER["REQUEST_METHOD"]) {
 
-        if($_SERVER["REQUEST_METHOD"] == "GET") {
+        if($_SERVER["REQUEST_METHOD"] == "DELETE") {
 
-            echo json_encode("SVAR GET");
+            
 
             exit; 
 
@@ -23,18 +23,6 @@ try {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -8,13 +8,13 @@ try {
     
     if($_SERVER["REQUEST_METHOD"]) {
         
-        if($_SERVER["REQUEST_METHOD"] == "GET") {
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
             
-            $horoscopeList = $_GET['name']; 
+            //$zodiac = $_GET['name']; 
             
-            $_SESSION['name'] = $horoscopeList . " ";
+            //$_SESSION['name'] = $zodiac . " ";
             
-            echo json_encode ("Sparat");
+            echo json_encode ("Sparat POST");
             
             exit; 
             
