@@ -65,12 +65,36 @@ $horoscopeList = [
 ]; 
 
 
-//function calculateZodiac() {
+function calculateZodiac($date, $horoscopeList) {
 
+    $date = ["month" => 4, "day" => 5]
 
     for ($i=0; $i < count($horoscopeList); $i++) { 
         $zodiac = $horoscopeList[$i]; 
-        echo "<p>{$zodiac['name']}</p>";
+
+        //$zodiac["start"]["month"] 
+        //$zodiac["start"]["day"]
+        //$zodiac["end"]["month"] 
+        //$zodiac["end"]["day"]
+
+        //$date["month"]
+        //$date["day"]
+
+        
+
+        if($zodiac["start"]["month"] == $date["month"] && $zodiac["start"]["day"] > $date["day"]) {
+            return $zodiac
+            
+        } elseif($zodiac["end"]["month"] == $date["month"] && $zodiac["end"]["day"] < $date["day"]) {
+            return $zodiac
+        }
+        
+    
+
+
+
+        
+
 
         if(('month' == 3 && 'day' > 21) || ('month' == 4 && 'day' < 20)) {
             return $zodiac['Väduren'];
@@ -111,7 +135,8 @@ $horoscopeList = [
         }
 
 
-    };
+    }
+}; 
 
 
 
