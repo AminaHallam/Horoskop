@@ -6,19 +6,11 @@ document.getElementById("deleteHoroscope").addEventListener("click", addDelete)
 
 async function initSite() {
     try {
-        
-        let GET = await makeRequest("./API/addHoroscope.php", {method: "POST"}); 
-        console.log(GET)
-
 
         let body = new FormData()
-        body.set("name", JSON.stringify(horoscopeList))
+        body.set("date", inputDate)
 
-        
-        let POST = await makeRequest("./API/updateHoroscope.php", {method: "POST", body: JSON.stringify(horoscopeList)}); 
-        
-        
-        console.log(POST)
+
 
     } catch(err) {
         console.error(err)
@@ -27,29 +19,52 @@ async function initSite() {
 
 }
 
+async function addResultInput() {
+    document.getElementById("resultInput").innerText = result;
+    let resultInput = await makeRequest(url, option, body, addInput); 
+    console.log(resultInput)
+
+}
 
 
-function addInput() {
+
+async function addInput() {
     let inputDate = document.getElementById("inputDate").value; 
-    console.log(inputDate)
+    let date = new Date(inputDate)
     
+    let month = date.getMonth() +1
+    let day = date.getDate() 
+    console.log(month, day)
+
+
+    let body = new FormData()
+    body.set("date", inputDate)
+    let option = {method: "POST", body}
+    let result = await makeRequest("./API/addHoroscope.php", option); 
+    console.log("saveDate")
 
     
 }
 
-function addUpdate() {
+async function addUpdate() {
     let inputDate = document.getElementById("updateHoroscope").value; 
-    console.log(inputDate)
-
+    let body = new FormData()
+    body.set("date", inputDate)
+    let option = {method: "POST", body}
+    let result = await makeRequest("./API/updateHoroscope.php", option); 
+    console.log("addUpdate")
 
 
 }
 
-function addDelete() {
+async function addDelete() {
     let deleteInput = document.getElementById("deleteHoroscope").value;
-    console.log(deleteInput)
-
-
+    
+    let body = new FormData()
+    body.set("date", deleteInput)
+    let option = {method: "DELETE", body}
+    let result = await makeRequest("./API/deleteHoroscope.php", option); 
+    console.log("addDeleteInput")
 
 }
 

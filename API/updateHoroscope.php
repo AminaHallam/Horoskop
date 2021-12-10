@@ -4,7 +4,7 @@
 try {
     session_start(); 
 
-    require("../horoscopeList.php"); 
+    // require("../horoscopeList.php"); 
 
     if($_SERVER["REQUEST_METHOD"]) {
 
@@ -18,14 +18,20 @@ try {
 
             //echo json_encode($_SESSION["name"]);
 
-            echo json_encode ("Sparat POST");
+            echo json_encode ("UpdateHoroscope funkar");
 
             exit; 
+
+
+        } else {
+
 
 
         }
 
     } else {
+        
+
         
     }
 
