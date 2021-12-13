@@ -12,11 +12,11 @@ try {
 
 
            
-            //$zodiac = json_decode($_POST["body"], true);
+            $zodiac = json_decode($_POST["body"], true);
 
             
 
-            //echo json_encode($_SESSION["name"]);
+            //echo json_encode($_SESSION['zodiac]);
 
             echo json_encode ("UpdateHoroscope funkar");
 

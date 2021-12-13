@@ -3,30 +3,32 @@
 try {
     session_start(); 
 
-    //require("../horoscopeList.php"); 
+    require("../horoscopeList.php"); 
 
     
     if($_SERVER["REQUEST_METHOD"]) {
         
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             
-            //$zodiac = $_GET['name']; 
+            $date = json_decode($_POST['date'], true); 
+            
+            $zodiac = calculateZodiac($date, $horoscopeList);
+            
+            $_SESSION['zodiac'] = serialize($zodiac); 
 
-            //$zodiac = calculateZodiac($_POST["date"], $horoscopeList)
-            
-            //$_SESSION['name'] = $zodiac . " ";
-            
-            echo json_encode ("addHoroscope funkar");
+            echo json_encode (TRUE);
             
             exit; 
             
-        } 
+        } else {
+            echo json_encode(FALSE); 
+        }
         
     } 
     
 
-} catch (exeption $err) {
-
+} catch (Exception $err) {
+    http_response_code($error->getcode); 
 
 
 
