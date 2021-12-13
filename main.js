@@ -10,18 +10,16 @@ async function initSite() {
         let body = new FormData()
         body.set("date", inputDate)
 
-
-
     } catch(err) {
         console.error(err)
 
     }
-
 }
 
 async function addResultInput() {
     document.getElementById("resultInput").innerText = result;
-    let resultInput = await makeRequest(url, option, body, addInput); 
+    let option = {method: "GET", body}
+    let resultInput = await makeRequest("./API/viewHoroscope.php", option, body); 
     console.log(resultInput)
 
 }
@@ -31,17 +29,13 @@ async function addResultInput() {
 async function addInput() {
     let inputDate = document.getElementById("inputDate").value; 
     let date = new Date(inputDate)
-    
-    let month = date.getMonth() +1
-    let day = date.getDate() 
-    console.log(month, day)
-
+    birthdayInput = {month: date.getMonth() +1, day: date.getDate()}; 
 
     let body = new FormData()
-    body.set("date", inputDate)
+    body.set("date", JSON.stringify(birthdayInput))
     let option = {method: "POST", body}
     let result = await makeRequest("./API/addHoroscope.php", option); 
-    console.log("saveDate")
+    console.log(result)
 
     
 }
@@ -59,10 +53,7 @@ async function addUpdate() {
 
 async function addDelete() {
     let deleteInput = document.getElementById("deleteHoroscope").value;
-    
-    let body = new FormData()
-    body.set("date", deleteInput)
-    let option = {method: "DELETE", body}
+    let option = {method: "DELETE"}
     let result = await makeRequest("./API/deleteHoroscope.php", option); 
     console.log("addDeleteInput")
 
@@ -70,12 +61,10 @@ async function addDelete() {
 
 
 
-
-
 async function makeRequest(url, option) {
     try {
         let response = await fetch(url, option)
-        let result = response.json()
+        let result = await response.json()
         return result 
 
 
