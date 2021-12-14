@@ -46,7 +46,7 @@ async function addUpdate() {
     body.set("date", inputDate)
     let option = {method: "POST", body}
     let result = await makeRequest("./API/updateHoroscope.php", option); 
-    console.log("addUpdate")
+    console.log(result)
 
 
 }
@@ -55,7 +55,7 @@ async function addDelete() {
     let deleteInput = document.getElementById("deleteHoroscope").value;
     let option = {method: "DELETE"}
     let result = await makeRequest("./API/deleteHoroscope.php", option); 
-    console.log("addDeleteInput")
+    console.log(result)
 
 }
 

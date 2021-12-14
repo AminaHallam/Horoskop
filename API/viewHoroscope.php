@@ -18,23 +18,12 @@ try {
     }
 
 
-} catch (exeption $err) {
+} catch (Exception $err) {
 
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -4,7 +4,7 @@
 try {
     session_start(); 
 
-    // require("../horoscopeList.php"); 
+    require("../horoscopeList.php"); 
 
     if($_SERVER["REQUEST_METHOD"]) {
 
@@ -12,35 +12,32 @@ try {
 
 
            
-            $zodiac = json_decode($_POST["body"], true);
+            //$zodiac = json_decode($_POST["body"], true);
+            if(isset($_SESSION['zodiac'])) {
 
-            
-
-            //echo json_encode($_SESSION['zodiac]);
-
-            echo json_encode ("UpdateHoroscope funkar");
-
-            exit; 
+                echo json_encode(TRUE);
+                exit; 
+                
+            } elseif(!isset($_SESSION['zodiac'])) {
+                
+                
+                echo json_encode(FALSE);
+            }
 
 
         } else {
+            echo json_encode(FALSE);
 
-
-
-        }
-
-    } else {
+        }; 
         
-
-        
-    }
+    };
 
 
-} catch (exeption $err) {
+} catch (Exception $err) {
 
     
 
-}
+};
 
 
 
