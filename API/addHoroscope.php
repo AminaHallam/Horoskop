@@ -28,7 +28,7 @@ try {
     
 
 } catch (Exception $err) {
-    http_response_code($error->getcode); 
+    //http_response_code($error->getcode); 
 
 
 
