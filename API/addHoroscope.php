@@ -20,15 +20,17 @@ try {
             
             exit; 
             
-        } else {
-            echo json_encode(FALSE); 
-        }
+        } if (!isset($_SESSION['zodiac'])) {
+        
+            echo json_encode(alert("Var vänlig och ange födelsedatum igen!")); 
+        
+        };
         
     } 
     
 
 } catch (Exception $err) {
-    //http_response_code($error->getcode); 
+    
 
 
 
