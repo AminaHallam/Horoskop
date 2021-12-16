@@ -9,10 +9,7 @@ try {
     if($_SERVER["REQUEST_METHOD"]) {
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-           
-            //$zodiac = json_decode($_POST["body"], true);
+            
             if(isset($_SESSION['zodiac'])) {
 
                 echo json_encode(TRUE);

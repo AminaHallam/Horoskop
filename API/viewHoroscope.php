@@ -7,12 +7,20 @@ try {
 
         if($_SERVER["REQUEST_METHOD"] == "GET") {
 
+            if (isset($_SESSION['zodiac'])) {
+
+                echo json_encode (unserialize ($_SESSION['zodiac'])); 
+
             
-            echo json_encode("ViewHoroscope funkar");
+                exit; 
+            
+            } else {
 
-            exit; 
+                echo json_encode(FALSE);
+            }
 
-
+        } else {
+            echo json_encode(""); 
         }
 
     }
