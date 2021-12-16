@@ -15,6 +15,7 @@ try {
                 
             } elseif(!isset($_SESSION['zodiac'])) {
                 echo json_encode(FALSE);
+                
             }; 
             
             exit; 

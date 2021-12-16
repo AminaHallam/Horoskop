@@ -10,6 +10,11 @@ try {
         
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             
+            if (isset($_SESSION['zodiac'])) {
+                echo json_encode (FALSE);
+                exit; 
+            };
+            
             $date = json_decode($_POST['date'], true); 
             
             $zodiac = calculateZodiac($date, $horoscopeList);
@@ -19,22 +24,15 @@ try {
             echo json_encode (TRUE);
             
             exit; 
-            
-        } if (!isset($_SESSION['zodiac'])) {
-        
-            echo json_encode(alert("Var vänlig och ange födelsedatum igen!")); 
-        
-        };
-        
-    } 
-    
+        }
 
+        
+    }  
+    
 } catch (Exception $err) {
     
 
-
-
-}
+};
 
 
 
