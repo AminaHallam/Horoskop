@@ -11,21 +11,21 @@ try {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if(isset($_SESSION['zodiac'])) {
-
-                echo json_encode(TRUE);
+                
+                echo json_encode(TRUE); 
+                
+                $date = calculateZodiac($date, $horoscopeList);
+                
+                $_SESSION['zodiac'] = serialize($zodiac); 
+                
                 exit; 
-                
-            } elseif(!isset($_SESSION['zodiac'])) {
-                
-                
+            } else {
                 echo json_encode(FALSE);
-            }
-
-
+                
+            } 
         } else {
-            echo json_encode(FALSE);
-
-        }; 
+        echo json_encode(FALSE);
+    }
         
     };
 
