@@ -11,7 +11,6 @@ try {
 
                 echo json_encode (unserialize ($_SESSION['zodiac'])); 
 
-            
                 exit; 
             
             } else {
@@ -27,8 +26,6 @@ try {
 
 
 } catch (Exception $err) {
-
-
 
 
 }

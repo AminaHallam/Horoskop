@@ -3,6 +3,7 @@
 $horoscopeList = [
     [
         'name' => 'Väduren', 
+        'unicode' => '♈',
         'start' => ['month' => 3, 'day' => 21], 
         'end' => ['month' => 4, 'day' => 20]
     ], 
@@ -71,7 +72,7 @@ function calculateZodiac($date, $horoscopeList) {
         $zodiac = $horoscopeList[$i]; 
         
         if(($zodiac['start']['month'] == $date['month'] && $zodiac['start']['day'] <= $date['day']) || ($zodiac['end']['month'] == $date['month'] && $zodiac['end']['day'] >= $date['day'])) {
-            error_log($zodiac['name']); 
+             
             return $zodiac['name'];
 
         };

@@ -37,23 +37,23 @@ async function addInput() {
     let option = {method: "POST", body}
     let result = await makeRequest("./API/addHoroscope.php", option); 
     console.log(result)
-    addResultInput()
+    addResultInput(); 
     
 }
 
 async function addUpdate() {
     let addUpdateInput = document.getElementById("updateHoroscope").value; 
-    if (addUpdateInput.length) {
+    if (!addUpdateInput) {
         alert("Ange ett födelsedatum och spara för att kunna uppdatera!")
-        
-    } 
+    }  
+    
     let body = new FormData()
     body.set("date", addUpdateInput)
     let option = {method: "POST", body}
     let result = await makeRequest("./API/updateHoroscope.php", option); 
-    console.log(result)
-    addResultInput()
-    // Lägg till en ny horoskop efter klick 
+    console.log(result) 
+    addResultInput(); 
+    
 }
 
 async function addDelete() { 

@@ -12,6 +12,8 @@ try {
                 session_destroy();
                 
                 echo json_encode(TRUE); 
+
+                exit; 
                 
             } elseif(!isset($_SESSION['zodiac'])) {
                 echo json_encode(FALSE);
@@ -20,16 +22,11 @@ try {
             
             exit; 
 
-
         };
 
     };
 
-
 } catch (Exception $err) {
-
-
-
 
 };
 
