@@ -5,7 +5,7 @@ document.getElementById("updateHoroscope").addEventListener("click", addUpdate)
 document.getElementById("deleteHoroscope").addEventListener("click", addDelete)
 
 async function initSite() {
-        addResultInput(); 
+        addResultInput();  
 
 }
 
@@ -42,18 +42,21 @@ async function addInput() {
 }
 
 async function addUpdate() {
-    let addUpdateInput = document.getElementById("updateHoroscope").value; 
-    if (!addUpdateInput) {
+    let addUpdateInput = document.getElementById("inputDate").value; 
+    if (!addUpdateInput.length) {
         alert("Ange ett födelsedatum och spara för att kunna uppdatera!")
+        return; 
     }  
-    
+
+    let date = new Date(addUpdateInput)
+    newBirthday = {month: date.getMonth() +1, day: date.getDate()};
     let body = new FormData()
-    body.set("date", addUpdateInput)
+    body.set("date", JSON.stringify(newBirthday))
     let option = {method: "POST", body}
     let result = await makeRequest("./API/updateHoroscope.php", option); 
     console.log(result) 
-    addResultInput(); 
-    
+        
+    addResultInput();
 }
 
 async function addDelete() { 
@@ -69,7 +72,6 @@ async function addDelete() {
     addResultInput(); 
 
 }
-
 
 
 async function makeRequest(url, option) {
