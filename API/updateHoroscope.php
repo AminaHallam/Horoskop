@@ -1,23 +1,24 @@
 <?php
 
-
 try {
     session_start(); 
 
-    require("../horoscopeList.php"); 
+    require("./horoscopeList.php"); 
 
     if($_SERVER["REQUEST_METHOD"]) {
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             
-            if(isset($_SESSION['zodiac'])) {
+            if(isset($_SESSION["zodiac"])) {
+                
+                $date = json_decode($_POST["date"], true); 
+                
+                $zodiac = calculateZodiac($date, $horoscopeList);
+                
+                $_SESSION["zodiac"] = serialize($zodiac); 
                 
                 echo json_encode(TRUE); 
-                
-                $date = calculateZodiac($date, $horoscopeList);
-                
-                $_SESSION['zodiac'] = serialize($zodiac); 
-                
+
                 exit; 
             } else {
                 echo json_encode(FALSE);
@@ -32,13 +33,8 @@ try {
 
 } catch (Exception $err) {
 
-    
 
 };
-
-
-
-
 
 
 ?>
