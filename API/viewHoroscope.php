@@ -9,7 +9,7 @@ try {
 
             if (isset($_SESSION['zodiac'])) {
 
-                echo json_encode (unserialize ($_SESSION['zodiac'])); 
+                echo json_encode (unserialize($_SESSION['zodiac'])); 
 
                 exit; 
             
