@@ -84,7 +84,7 @@ function calculateZodiac($date, $horoscopeList) {
         
         if(($zodiac['start']['month'] == $date['month'] && $zodiac['start']['day'] <= $date['day']) || ($zodiac['end']['month'] == $date['month'] && $zodiac['end']['day'] >= $date['day'])) {
              
-            return $zodiac['name']. " " . $zodiac['unicode'];
+            return $zodiac['name']. " " .$zodiac['unicode'];
 
         };
 
